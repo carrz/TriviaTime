@@ -8,7 +8,7 @@ $('#multiple').click((() => {
     return response.json();
   })
   .then((data) => {
-    console.log(data);
+    //console.log(data);
     questions = data.results;
     quizMultiple();
   })
@@ -25,7 +25,7 @@ $('#boolean').click(
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       questions = data.results;
       quizBoolean();
     })
@@ -87,7 +87,7 @@ function quizMultiple() {
     }
     quizMultiple();
   });
-    numberQuestion++;
+  numberQuestion++;
 }
 
 function quizBoolean() {
