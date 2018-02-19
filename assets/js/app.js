@@ -63,21 +63,10 @@ function quizMultiple() {
   $('#quizContainer').empty();
   let answers = questions[numberQuestion].incorrect_answers;
   let actualRightAnswer = questions[numberQuestion].correct_answer;
-  console.log(actualRightAnswer);
+  actualAnswer = actualRightAnswer;
+  //console.log(actualRightAnswer);
   answers.push(actualRightAnswer);
-  /*   shuffledAnswers(answers);
-
-    function shuffledAnswers(array) {
-      var currentIndex = array.length, temporaryValue, randomIndex;
-      while (0 !== currentIndex) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-      }
-      return shuffledAnswers;
-    } */
+  answers.sort();
 
   $('#quizContainer').append(
     `<h5> Question ${numberQuestion+1} / 10 </h5>
@@ -92,8 +81,9 @@ function quizMultiple() {
 
   $('.submit').click(function (event) {
     event.preventDefault();
-    if (actualAnswer === rightAnswers) {
+    if ($(this).text() === actualAnswer) {
       rightAnswers++;
+      //console.log(rightAnswers)
     }
     quizMultiple();
   });
@@ -116,7 +106,8 @@ function quizBoolean() {
 
   $('#quizContainer').empty();
   let actualRightAnswer = questions[numberQuestion].correct_answer;
-  console.log(actualRightAnswer);
+  actualAnswer = actualRightAnswer;
+  //console.log(actualRightAnswer);
   
   $('#quizContainer').append(
     `<h5> Question ${numberQuestion+1} / 10 </h5>
@@ -129,8 +120,9 @@ function quizBoolean() {
 
   $('.submit').click(function (event) {
     event.preventDefault();
-    if (actualAnswer === rightAnswers) {
+    if ($(this).text() === actualAnswer) {
       rightAnswers++;
+      //console.log(rightAnswers)
     }
     quizBoolean();
   });
